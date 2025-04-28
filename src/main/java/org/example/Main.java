@@ -5,6 +5,7 @@ import io.temporal.serviceclient.WorkflowServiceStubs;
 import io.temporal.worker.Worker;
 import io.temporal.worker.WorkerFactory;
 import org.example.activity.HelloActivityImpl;
+import org.example.workflow.HelloWorld1Impl;
 import org.example.workflow.HelloWorldImpl;
 
 public class Main {
@@ -15,6 +16,7 @@ public class Main {
         Worker worker = factory.newWorker("greetingQueue");
 
         worker.registerWorkflowImplementationTypes(HelloWorldImpl.class);
+        worker.registerWorkflowImplementationTypes(HelloWorld1Impl.class);
 //        worker.registerActivitiesImplementations(new HelloActivityImpl());
 
         factory.start();
